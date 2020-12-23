@@ -99,9 +99,9 @@ if (MSVC)
               src/gmock_main.cc)
 else()
   cxx_library(gmock "${cxx_strict}" src/gmock-all.cc)
-  target_link_libraries(gmock PUBLIC gtest)
+  target_link_libraries(gmock LINK_PUBLIC gtest)
   cxx_library(gmock_main "${cxx_strict}" src/gmock_main.cc)
-  target_link_libraries(gmock_main PUBLIC gmock)
+  target_link_libraries(gmock_main LINK_PUBLIC gmock)
 endif()
 # If the CMake version supports it, attach header directory information
 # to the targets for when we are part of a parent build (ie being pulled
@@ -196,10 +196,10 @@ $env:Path = \"$project_bin;$env:Path\"
 
   else()
     cxx_library(gmock_main_no_exception "${cxx_no_exception}" src/gmock_main.cc)
-    target_link_libraries(gmock_main_no_exception PUBLIC gmock)
+    target_link_libraries(gmock_main_no_exception LINK_PUBLIC gmock)
 
     cxx_library(gmock_main_no_rtti "${cxx_no_rtti}" src/gmock_main.cc)
-    target_link_libraries(gmock_main_no_rtti PUBLIC gmock)
+    target_link_libraries(gmock_main_no_rtti LINK_PUBLIC gmock)
   endif()
   cxx_test_with_flags(gmock-more-actions_no_exception_test "${cxx_no_exception}"
     gmock_main_no_exception test/gmock-more-actions_test.cc)

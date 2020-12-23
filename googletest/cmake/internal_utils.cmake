@@ -186,7 +186,7 @@ function(cxx_library_with_type name type cxx_flags)
     else()
       set(threads_spec Threads::Threads)
     endif()
-    target_link_libraries(${name} PUBLIC ${threads_spec})
+    target_link_libraries(${name} LINK_PUBLIC ${threads_spec})
   endif()
 endfunction()
 
